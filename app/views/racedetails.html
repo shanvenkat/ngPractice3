@@ -1,0 +1,54 @@
+﻿
+<table class="table table-hover table-striped table-condensed table-bordered"  >
+<thead>Race Details</thead>
+</table>
+
+  <table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr >    
+            <th >Position</th>
+            <th >Driver</th>            
+            <th >Team</th>            
+            <th >Result</th>            
+            <th >Points</th>                           
+        </tr>
+    </thead>
+    <tbody>       
+       <tr ng-repeat="race in raceDetails">                      
+        <td>{{race.position}}</td>     
+                    
+           <td> <a href="#/drivers/{{race.Driver.driverId}}"> {{race.Driver.givenName}}&nbsp;{{race.Driver.familyName}}</a> </td>                              
+            <td><a href="#/teams/{{race.Constructor.constructorId}}">{{race.Constructor.name}}</a> </td>           
+           <td>{{race.Time.time}}</td>
+           <td>{{race.points}}</td>
+        </tr>
+
+    </tbody>
+</table>  
+
+<table class="table table-hover table-striped table-condensed table-bordered"  >
+<thead>Qualifying  Results</thead>
+</table>                         
+ <table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr>
+            <th >Position</th>
+            <th >Driver</th>            
+            <th >Team</th>            
+            <th >Best Time</th>                           
+        </tr>
+    </thead>
+    <tbody >       
+       <tr ng-repeat="qualifyingResult in qualifyingResults">                      
+        <td>{{qualifyingResult.position}}</td>
+            <td> <a href="#/drivers/{{qualifyingResult.Driver.driverId}}"> {{qualifyingResult.Driver.givenName}}&nbsp;{{qualifyingResult.Driver.familyName}} </a> </td>                   
+             <td><a href="#/teams/{{qualifyingResult.Constructor.constructorId}}">{{qualifyingResult.Constructor.name}}</a> </td>           
+              <td>               
+                 <div ng-if="pickTime(qualifyingResult)"> {{retval}} </div>                
+                </td>
+                </tr>
+    </tbody>
+</table>                           
+ <a href="#/" class="btn btn-primary">F1 Champions</a>
+  
+    

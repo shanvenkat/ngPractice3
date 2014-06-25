@@ -1,0 +1,54 @@
+﻿<input type="text" ng-model="nameFilter" placeholder="Search..."/>
+
+<div class="well well-sm" data-ng-show="totalRecordsCount == 0">
+            <h5>No Driver Records  found </h5>
+        </div>
+        <br />
+
+        <table class="table table-hover table-striped table-condensed table-bordered"  >
+            <thead>Drivers Championship Standings 2013</thead>
+    </table>  
+    <table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr>
+            <th >Position</th> 
+            <th >Driver ID</th>    
+            <th >Full Name</th> 
+            <th >Nationality</th>
+            <th >Constructor</th> 
+            <th >Points</th>           
+            <th >Wins</th>                    
+        </tr>
+    </thead>
+    <tbody>       
+       <tr ng-repeat="driver in drivers|filter:nameFilter">                      
+            <td>
+                {{driver.position}}                
+            </td>
+            <td>
+                {{driver.Driver.driverId}}                
+            </td>            
+            <td>
+                <a href="#/drivers/{{driver.Driver.driverId}}">
+	  	            {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+	            </a>
+            
+            </td>
+            <td>
+                {{driver.Driver.nationality}} 
+                             
+            </td>      
+                 <td>
+                 <a href="#/teams/{{driver.Constructors[0].constructorId}}">
+	  	            {{driver.Constructors[0].name}}
+	            </a>               
+            </td> 
+            <td>               
+               {{driver.points}}
+            </td> 
+            <td>
+               {{driver.wins}}
+            </td>
+        </tr>         
+    </tbody>
+</table>

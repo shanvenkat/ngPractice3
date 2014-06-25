@@ -1,0 +1,25 @@
+﻿     <table class="table table-hover table-striped table-condensed table-bordered"  >
+            <thead>Formula 1 2013 Results</thead>
+    </table>  
+    <table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr>                      
+            <th >Round</th> 
+            <th >Grand Prix</th>    
+            <th >{{headerFirst}}</th>    
+            <th >{{headerSecond}}</th>    
+            <th >Points</th>    
+        </tr>
+    </thead>
+    <tbody>       
+       <tr ng-repeat="Race in TeamRaces">                      
+            <td>{{Race.round}} </td>
+            <td><a href="#/races/{{Race.round}}"> {{Race.raceName}} </a></td>
+            <td >{{Race.Results[0].position}}</td>    
+            <td >{{Race.Results[1].position}}</td>  
+             <td ><div ng-if="totalPoints(Race.Results[0].points, Race.Results[1].points)">{{retval}}</div></td>          
+              
+        </tr>         
+    </tbody>
+</table>
+<a href="#/" class="btn btn-primary">F1 Champions</a><br/><br />
